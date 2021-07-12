@@ -1,0 +1,33 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ZKHTYJ/springcloud-config.git
+          search-paths:
+            - springcloud-config
+          skip-ssl-validation: true
+          force-pull: true
+          username: ZKHTYJ
+          password: Tcc@123456
+          ###默认读取的分支
+      label: master
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
