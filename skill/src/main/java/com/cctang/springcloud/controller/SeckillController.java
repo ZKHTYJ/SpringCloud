@@ -78,9 +78,11 @@ public class SeckillController {
 
                 String zkSoldOutProductPath = Constants.getZKSoldOutProductPath(productId);
                 if(zooKeeper.exists(zkSoldOutProductPath,true) == null){
-                    zooKeeper.create(zkSoldOutProductPath,"true".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-                }else if("false".equals(new String(zooKeeper.getData(zkSoldOutProductPath,true,new Stat())))){
-                    zooKeeper.setData(zkSoldOutProductPath,"true".getBytes(),-1);
+                    synchronized (this) {
+                        if(zooKeeper.exists(zkSoldOutProductPath,true) == null){
+                            zooKeeper.create(zkSoldOutProductPath,"true".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+                        }
+                    }
                 }
                     // 监听zk售完标记节点
                 zooKeeper.exists(zkSoldOutProductPath,true);
@@ -107,20 +109,8 @@ public class SeckillController {
     }
 
     /**
-     * 查询单个
+     * 添加订单
      * */
-    @GetMapping(value ="/{id}")
-    public CommonResult getProductforId(@PathVariable("id") Long id) {
-        // 查看此id是否存在
-
-        Product product = productService.getProductId(id);
-        log.info("此次查詢的結果："+product+"当前端口号为："+serverPort);
-        if(product != null) {
-            return new CommonResult(200,"查詢成功,当前端口号为："+serverPort, product);
-        }else {
-            return new CommonResult(500,"抱歉，沒有id為"+id+"的記錄,当前端口号为："+serverPort, null);
-        }
-    }
     @PostMapping(value = "/order/addOrder")
     public CommonResult addOrder(@RequestBody Order order){
          int result = orderService.saveOrder(order);

@@ -3,7 +3,9 @@ package com.cctang.springcloud.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -14,7 +16,8 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+@ToString
+public class Product implements Serializable {
     private Long id;
     private String name;
     private BigDecimal price;

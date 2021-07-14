@@ -3,14 +3,13 @@ package com.cctang.springcloud.zookeeper;
 import com.cctang.springcloud.controller.SeckillController;
 import com.cctang.springcloud.entities.Constants;
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-
+import org.apache.zookeeper.Watcher.Event.EventType;
 /**
  * @author cctang
  * @version 1.0
@@ -31,15 +30,16 @@ public class ZookeeperWatch implements Watcher, ApplicationContextAware {
 
     @Override
     public void process(WatchedEvent event) {
-        if(event.getType() == Event.EventType.None && event.getPath() == null){
+        if(event.getType() == EventType.None && event.getPath() == null){
             log.info("====================zookeeper连接成功====================");
             if(zooKeeper == null){
                 zooKeeper = applicationContext.getBean(ZooKeeper.class);
             }
             // 创建zk的商品售完标记根节点
             try{
+
                 if(zooKeeper.exists(Constants.ZK_PRODUCT_SOLD_OUT_FLAG,false) == null){
-                    zooKeeper.create(Constants.ZK_PRODUCT_SOLD_OUT_FLAG, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+//                    zooKeeper.create(Constants.ZK_PRODUCT_SOLD_OUT_FLAG, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
                 }
             }catch(Exception e){
                 e.printStackTrace();

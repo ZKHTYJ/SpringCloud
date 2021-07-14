@@ -25,7 +25,7 @@ public interface ProductDao {
     @Select("select * from product")
     List<Product> getAllProducts();
 
-    @Update("update product set stock=stock-1 where id=#{id} and stock>0")
+    @Update("update product set stock=stock-1 where id=#{id} stock > 0")
     int deductProductStock(@Param("id") Long id);
 
     @Delete("delete from product where id = #{id}")
