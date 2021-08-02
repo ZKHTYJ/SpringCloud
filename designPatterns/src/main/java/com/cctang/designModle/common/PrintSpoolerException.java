@@ -1,10 +1,9 @@
-package com.cctang.springcloud.entities;
+package com.cctang.designModle.common;
 
 /**
  * @author cctang
  * @version 1.0
- * @date 2021/8/2 15:09
- * @description
+ * @date 2021/8/2 21:47
  */
 public class PrintSpoolerException extends Exception{
     public PrintSpoolerException () {

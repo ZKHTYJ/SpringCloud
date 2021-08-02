@@ -1,6 +1,6 @@
 package com.cctang.designModle.singleton;
 
-import com.cctang.springcloud.entities.PrintSpoolerException;
+import com.cctang.designModle.common.PrintSpoolerException;
 
 /**
  * @author cctang

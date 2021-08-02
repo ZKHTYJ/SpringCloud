@@ -1,6 +1,7 @@
 package com.cctang.designModle.builder;
 
-import com.cctang.springcloud.entities.Meal;
+
+import com.cctang.designModle.common.Meal;
 
 /**
  * @author cctang
