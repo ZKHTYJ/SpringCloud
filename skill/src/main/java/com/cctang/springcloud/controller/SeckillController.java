@@ -78,11 +78,11 @@ public class SeckillController {
 
                 String zkSoldOutProductPath = Constants.getZKSoldOutProductPath(productId);
                 if(zooKeeper.exists(zkSoldOutProductPath,true) == null){
-                    synchronized (this) {
+                   // synchronized (this) {
                         if(zooKeeper.exists(zkSoldOutProductPath,true) == null){
                             zooKeeper.create(zkSoldOutProductPath,"true".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
                         }
-                    }
+                 //   }
                 }
                     // 监听zk售完标记节点
                 zooKeeper.exists(zkSoldOutProductPath,true);

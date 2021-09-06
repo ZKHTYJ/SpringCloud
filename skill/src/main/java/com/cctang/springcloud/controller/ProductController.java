@@ -94,25 +94,7 @@ public class ProductController {
             allProducts = productService.getAllProducts();
            stringRedisTemplate.opsForValue().set("productList1", JSON.toJSONString(allProducts), 6000 * 1, TimeUnit.SECONDS);
         }
-//        String s1 = stringRedisTemplate.opsForValue().get("productList");
-//        if(s1 != "") {
-//            //数据库操作
-//            allProducts = productService.getAllProducts();
-//            String s = JSON.toJSONString(allProducts);
-//            stringRedisTemplate.opsForValue().set("productList",s);
-//        } else {
-//            allProducts = JSON.parseArray(s1,Product.class);
-//        }
 
-//        String listCache = stringRedisTemplate.opsForValue().get("productList1");
-//        if(listCache != null){
-//            allProducts = JSON.parseObject(listCache,new TypeReference<List<Product>>(){});
-//        }else{
-//            allProducts = productService.getAllProducts();
-//            stringRedisTemplate.opsForValue().set("productList1", JSON.toJSONString(allProducts), 6000 * 1, TimeUnit.SECONDS);
-//        }
-
-       // List<Product> allProducts = productService.getAllProducts();
         if(allProducts.size() != 0){
             log.info("此次查询到秒杀商品的列表为： "+allProducts);
             return new CommonResult<>(200,"查询所有秒杀产品成功",allProducts);

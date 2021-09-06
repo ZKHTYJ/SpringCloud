@@ -1,0 +1,42 @@
+{
+"Response" : {
+  "OffersGroup" :{
+    "Offer" :{
+      "OfferID": "String",
+      "OfferItem" :[
+        {
+          "OfferItemID": "String",
+          "price": "TotalAmount",
+          "service": [
+            {
+              "ServiceID": "String",
+              "trip": "String",
+              "ServiceAssociations": {
+                  "PaxJouneyRefID": "String"
+              }
+            }
+
+          ]
+        }
+      ]
+    }
+  },
+  "DataLists": [
+    {
+      "PaxJourneyList" : {
+        "PaxJourney": {
+          "PaxJourneyID": "String",
+          "PaxSegmentRefID": "String"
+        }
+      }
+    }
+  ],
+  "PaxSegmentList": [
+    {
+      "PaxSegment": {
+        "PaxSegmentID": "String"
+      }
+    }
+  ]
+}
+}

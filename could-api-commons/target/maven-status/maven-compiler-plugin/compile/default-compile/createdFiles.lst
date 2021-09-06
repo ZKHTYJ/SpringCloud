@@ -1,0 +1,5 @@
+com\cctang\springcloud\entities\Product.class
+com\cctang\springcloud\entities\Payment.class
+com\cctang\springcloud\entities\CommonResult.class
+com\cctang\springcloud\entities\Constants.class
+com\cctang\springcloud\entities\Order.class

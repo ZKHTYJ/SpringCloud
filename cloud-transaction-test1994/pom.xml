@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>designPatterns</artifactId>
+    <artifactId>cloud-transaction-test1994</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -56,7 +56,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <!--eureka client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.cctang.springcloud</groupId>
             <artifactId>could-api-commons</artifactId>
@@ -64,4 +68,5 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
 </project>
