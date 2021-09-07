@@ -46,9 +46,9 @@ class UserMapperTest {
     @Test
     public void insertUsers(){
         User user = new User();
-        user.setAge(11);
-        user.setEmail("test8@qq.com");
-        user.setName("cc");
+        user.setAge(15);
+        // user.setEmail("test6@qq.com");
+        user.setName("ee");
         int insert = userMapper.insert(user);
         if(insert>0){
             System.out.println("插入成功");
@@ -115,7 +115,7 @@ class UserMapperTest {
 
     @Test
     public void searchUserById(){
-        User user = userMapper.selectById(1434892196437721090L);
+        User user = userMapper.selectById(1435237946875080706L);
         System.out.println(user);
     }
 
@@ -153,7 +153,7 @@ class UserMapperTest {
     //删除---单一
     @Test
     public void delRecode(){
-        userMapper.deleteById(1433048262804328449L);
+        userMapper.deleteById(1435237946875080706L);
     }
 
     // 删除---批量

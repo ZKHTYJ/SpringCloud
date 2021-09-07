@@ -43,9 +43,9 @@ public class MybatisPlusConfig {
 //    public PaginationInterceptor paginationInterceptor(){
 //        return new PaginationInterceptor();
 //    }
-@Bean
-public SqlCostPlugins myPlugin() {
-    return  new SqlCostPlugins();
-}
+//@Bean
+//public SqlCostPlugins myPlugin() {
+//    return  new SqlCostPlugins();
+//}
 
 }
